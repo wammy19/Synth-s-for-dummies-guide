@@ -1,0 +1,189 @@
+header {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 30px;
+}
+
+.logo img {
+    position: relative;
+    width: 300px;
+    cursor: pointer;
+    bottom: 20%;
+}
+
+.nav_Links a {
+    font-family: Poppins, sans-serif;
+    letter-spacing: 2px;
+    text-decoration: none;
+}
+
+.nav_Links li {
+    list-style-type: none;
+}
+
+.nav_Links {
+    position: relative;
+    float: right;
+    font-size: 25px;
+}
+
+.nav_Links li a {
+    padding-left: 20px;
+    color: white;
+    transition: all 0.3s ease 0s;
+}
+
+/* On Hover Styles */
+.nav_Links li a:hover {
+    font-size: 28px;
+}
+
+.oscillatorLink:hover {
+    color: #A90003;
+}
+
+.filterLink:hover {
+    color: #3F4ADD;
+}
+
+.envelopeLink:hover {
+    color: #00AC00;
+}
+
+.effectsLink:hover {
+    color:#C5A800;
+}
+
+.nav_Links .oscillatorLinkOnPage {
+    color: #A90003;
+}
+
+.nav_Links .filterLinkOnPage {
+    color: #3F4ADD;
+}
+
+.nav_Links .envelopeLinkOnPage {
+    color: #00AC00;
+}
+
+.nav_Links .effectsLinkOnPage {
+    color:#C5A800;
+}
+
+button {
+    display: none;
+}
+
+/*This is hiding the check box button. */
+#check {
+    display: none;
+}
+
+/* Responsive Styling */
+
+@media screen and (max-width: 1169px) {
+
+    .logo img {
+        width: 270px
+    }
+
+    .nav_Links {
+        font-size: 23px;
+    }
+
+    .nav_Links li a{
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .nav_Links li a:hover {
+        font-size: 26px;
+    }
+}
+
+@media screen and (max-width: 1066px) {
+
+    .logo img {
+        width: 250px
+    }
+
+    .nav_Links {
+        font-size: 20px;
+    }
+
+    .nav_Links li a:hover {
+        font-size: 22px;
+    }
+}
+
+@media screen and (max-width: 976px) {
+
+    .logo img {
+        width: 220px
+    }
+
+    .nav_Links {
+        font-size: 18px;
+    }
+
+    .nav_Links li a:hover {
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 886px) {
+
+    header {
+        padding-top: 20px;
+        z-index: 10;
+
+    }
+
+    .burgerBarDiv {
+        position: relative;
+        float: right;
+        left: 7%;
+        top: 3px;
+    }
+
+    .checkbutton {
+        font-size: 30px;
+        color: white;
+        display: block;
+        margin-left: 35%;
+        margin-top: 10px;
+        cursor: pointer;
+    }
+
+    .nav_Links {
+        position: fixed;
+        width: 100%;
+        top: 70px;
+        left: 100%;
+        text-align: center;
+        z-index: 10;
+        font-size: 50px;
+        transition: all .800s;
+    }
+
+    .nav_Links li a:hover {
+        font-size: 55px;
+    }
+
+    .nav_Links li {
+        padding: 30px
+
+    }
+
+    .logo img {
+        padding-top: 20px;
+        width: 210px;
+        cursor: pointer;
+    }
+
+    /*This will display the navigation menu once the burger menu is clicked. */
+    #check:checked ~nav .nav_Links {
+        left: 0
+    }
+}

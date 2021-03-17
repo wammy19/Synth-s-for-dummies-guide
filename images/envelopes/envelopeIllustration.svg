@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="544.504" height="231.5" viewBox="0 0 544.504 231.5">
+  <g id="Group_18" data-name="Group 18" transform="translate(-1332 -756.5)">
+    <path id="Path_8" data-name="Path 8" d="M0,0,142.915,69.507" transform="translate(1651.5 889.5)" fill="none" stroke="#00b100" stroke-linecap="round" stroke-width="4"/>
+    <line id="Line_3" data-name="Line 3" x1="516" y1="1" transform="translate(1360.5 958.5)" fill="none" stroke="#fff" stroke-width="4"/>
+    <path id="Path_6" data-name="Path 6" d="M0,170.457,53.476.509" transform="translate(1362.5 786.043)" fill="none" stroke="#00b100" stroke-linecap="round" stroke-width="4"/>
+    <path id="Path_7" data-name="Path 7" d="M60.5,103.275,12.526.506" transform="translate(1403.653 785.725)" fill="none" stroke="#00b100" stroke-linecap="round" stroke-width="4"/>
+    <path id="Path_1" data-name="Path 1" d="M29.979,13H217.122" transform="translate(1434.17 876.5)" fill="none" stroke="#00b100" stroke-linecap="round" stroke-width="4"/>
+    <text id="A" transform="translate(1372 850)" fill="#fff" font-size="25" font-family="Poppins-Regular, Poppins"><tspan x="0" y="0">A</tspan></text>
+    <text id="Amplitude" transform="translate(1351 901) rotate(-90)" fill="#fff" font-size="18" font-family="Poppins-Regular, Poppins"><tspan x="0" y="0">Amplitude</tspan></text>
+    <text id="Time" transform="translate(1523 982)" fill="#fff" font-size="18" font-family="Poppins-Regular, Poppins"><tspan x="0" y="0">Time</tspan></text>
+    <text id="D" transform="translate(1452 850)" fill="#fff" font-size="25" font-family="Poppins-Regular, Poppins"><tspan x="0" y="0">D</tspan></text>
+    <text id="S" transform="translate(1552 880)" fill="#fff" font-size="25" font-family="Poppins-Regular, Poppins"><tspan x="0" y="0">S</tspan></text>
+    <text id="R" transform="translate(1723 916)" fill="#fff" font-size="25" font-family="Poppins-Regular, Poppins"><tspan x="0" y="0">R</tspan></text>
+    <g id="Group_11" data-name="Group 11">
+      <line id="Line_2" data-name="Line 2" y2="203" transform="translate(1362.5 756.5)" fill="none" stroke="#fff" stroke-width="4"/>
+    </g>
+  </g>
+</svg>

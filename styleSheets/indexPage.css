@@ -1,0 +1,89 @@
+.homeMain {
+    margin-left: 31px;
+}
+
+.welcomeText {
+    letter-spacing: 1px;
+    font-size: 14px;
+    border-radius: 25px;
+    border: 2px solid white;
+    padding: 15px;
+    width: 900px;
+}
+
+.homeCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.indexHighlighting {
+    font-weight: bold;
+    font-size: 27px
+}
+
+.oscillator {
+
+    position: relative;
+    display: inline-block;
+}
+
+.filter {
+
+    position: relative;
+    display: inline-block;
+}
+
+.envelope {
+
+    position: relative;
+    display: inline-block;
+}
+
+.effects {
+
+    position: relative;
+    display: inline-block;
+}
+
+/* Adjustments to the properties above for responsiveness. */
+@media screen and (max-width: 1414px) {
+
+    .column {
+        width: 30%;
+    }
+}
+
+@media screen and (max-width: 1161px) {
+
+    .column {
+        width: 50%;
+    }
+
+    .welcomeText {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 797px){
+
+    .welcomeText {
+        width: 550px;
+    }
+
+    .column {
+        padding: 5px;
+    }
+}
+
+@media screen and (max-width: 713px) {
+
+    .welcomeText {
+        width: 295px;
+    }
+
+    .column {
+        width: 100%;
+        padding: 19px
+    }
+}

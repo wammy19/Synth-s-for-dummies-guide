@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="styleSheets/mainStyleSheet.css">
+        <link rel="stylesheet" href="styleSheets/sliders.css">
+        <link rel="stylesheet" href="styleSheets/navigationBar.css">
+        <link rel="stylesheet" href="styleSheets/filterPage.css">
+        <meta charset="UTF-8">
+        <title>Filter</title>
+        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+        <script src="javaScript/libraries/p5.js"></script>
+        <script src="javaScript/libraries/p5.sound.js"></script>
+        <script src="javaScript/filterPage/filter.js"></script>
+    </head>
+    <body>
+        <div class="pageContainerParent">
+            <div class="pageContainer">
+                <header>
+                    <div class="logo">
+                        <a href="index.html">
+                            <img src="images/logo/Logo.svg" alt="Website Logo">
+                        </a>
+                    </div>
+                    <input type="checkbox" id="check">
+                    <label for="check" class="checkbutton">
+                        <i class="fas fa-bars"></i>
+                    </label>
+                    <nav>
+                        <ul class="nav_Links">
+                            <li>
+                                <a href="oscillator.html" class="oscillatorLink">Oscillators</a>
+                                <a href="filter.html" class="filterLinkOnPage">Filters</a>
+                                <a href="envelope.html" class="envelopeLink">Envelopes</a>
+                                <a href="effects.html" class="effectsLink">Effects</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </header>
+                <main class="filterContent">
+                    <div class="box1">
+                        <h1>Filters.</h1>
+                        <br>
+<!--                         The knowledge of synthesizers on this page as all come from the many years i've spent playing the synthesizer.-->
+                        <!--I found external sources to explain something once in another page, I have made note-->
+                        <!--of that in the report.-->
+
+                        <p>Filters could be found by a number of names on a synthesiser such as, “VCF”, “HPF”, “LPF”,
+                            “BPF” or simply “Filter”.  Filters are used to shape the waveforms by blocking certain
+                            frequencies, while allowing other frequencies  to be heard. Filters play a big part in
+                            giving a synthesizer it’s own unique character. There are various types of filters which
+                            behave differently.</p>
+                        <br>
+                        <p>Below are buttons labeled “Low Pass” (AKA High Cut), “High Pass”
+                            (AKA Low Cut), and “Band Pass”.  These refer to the different types of filters one can
+                            apply to shape the sound. If you press the play button you will hear white noise
+                            (synthesisers often have a noise source), and see the frequency spectrum illustrated by
+                            the frequency analyzer. There is also the choice to flip from white noise to some waveforms
+                            we saw on the previous page. Have a play around with the slider labeled “Cutoff”, and have
+                            a flip through the different filter types starting with the white noise selected, then
+                            hearing the other waveforms.</p>
+                        <br>
+                        <div class="warningContainer">
+                            <div class="soundWarning">
+                                <h4>Caution!</h4>
+                                <p>Audio could be loud. Make sure to set your volume appropriately.</p>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="responsiveOscilloscope">
+<!--                            This div is a p5 canvas that only appears when the viewport width is around 750px. -->
+                            <div class="oscillatorCanvas1" id="oscillatorCanvas2"></div>
+                            <div class="responsiveButtonStyling">
+                                <form>
+                                    <input type="button" class="playButton" value="Play" id="playButton" onclick="startSynth()">
+                                    <input type="button" class="playButton" value="Stop" id="stopButton" onclick="stopSound()">
+                                </form>
+                            </div>
+                        </div>
+                        <div class="masterFilterControls">
+                            <div class="filterControls">
+                                <label for="cutOffSlider">
+                                    <input type="range" min="200" max="22000" value="22050" class="slider" id="cutOffSlider" step="0.1">
+                                    <h4>Cutoff</h4>
+                                </label>
+                                <label for="resonanceSlider">
+                                    <input type="range" min="1" max="40" value="0.7" class="slider" id="resonanceSlider" step="0.1">
+                                    <h4>Resonance</h4>
+                                </label>
+                                <div class="filterButtons">
+                                    <input type="button" class="playButton" value="Low Pass" id="lowPassButton" onclick="changeFilterLow()">
+                                    <input type="button" class="playButton" value="High Pass" id="highPassButton" onclick="changeFilterHigh()">
+                                    <input type="button" class="playButton" value="Band Pass" id="bandPassButton" onclick="changeBandPass()">
+                                </div>
+                            </div>
+                            <div class="filterControls">
+                                <label for="lfoAmountSlider">
+                                    <input type="range" min="0" max="2000" value="0" class="slider" id="lfoAmountSlider" step="1">
+                                    <h4>LFO Amount</h4>
+                                </label>
+                                <label for="lfoSpeedSlider">
+                                    <input type="range" min="0.1" max="0.9" value="0" class="slider" id="lfoSpeedSlider" step="0.01">
+                                    <h4>LFO Speed</h4>
+                                </label>
+                                <div class="filterButtons">
+                                    <input type="button" class="playButton" value="Noise" id="noiseButton" onclick="startNoise()">
+                                    <input type="button" class="playButton" value="Square" id="squareButton" onclick="playSquareFilterPage()">
+                                    <input type="button" class="playButton" value="Sawtooth" id="sawButton" onclick="playSawFilterPage()">
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <p>You can clearly hear and see that the filter is removing the frequencies selected by the
+                            ‘cut off’ slider in a smooth sweep motion.  The low pass filter will cut out frequencies
+                            from high too low. The high pass filter does the opposite and cuts out frequencies from low
+                            too high. The band pass filter allows us to select frequencies between high and low.</p>
+                        <br>
+                        <p> The
+                            ‘Resonance’ (often found as ‘Res’) slider amplifies the cutoff frequency. Have a play around
+                            with the ‘Resonance’ slider in combination with the ‘Cutoff’ slider. There is also an LFO
+                            routed to the ‘Cutoff’ <to></to> demonstrate how LFO’s can be routed to different
+                            parameters.</p>
+                        <br>
+                    </div>
+                    <div class="nextPageFilter">
+                        <a href="envelope.html">Continue To Envelopes -></a>
+                    </div>
+                    <div class="box2">
+                        <div class="canvases">
+<!--                        This div allows p5 to create a canvas -->
+                            <div class="oscillatorCanvas1" id="oscillatorCanvas1"></div>
+                            <div class="buttonStyling">
+                                <form>
+                                    <input type="button" class="playButton" value="Play" id="playButton2" onclick="startSynth()">
+                                    <input type="button" class="playButton" value="Stop" id="stopButton2" onclick="stopSound()">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </body>
+</html>

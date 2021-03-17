@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="styleSheets/mainStyleSheet.css">
+        <link rel="stylesheet" href="styleSheets/sliders.css">
+        <link rel="stylesheet" href="styleSheets/navigationBar.css">
+        <link rel="stylesheet" href="styleSheets/effectsPage.css">
+        <meta charset="UTF-8">
+        <title>Effects</title>
+        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+        <script src="javaScript/libraries/p5.js"></script>
+        <script src="javaScript/libraries/p5.sound.js"></script>
+        <script src="javaScript/effectsPage/effects.js"></script>
+    </head>
+    <body>
+        <div class="pageContainerParent">
+            <div class="pageContainer">
+                <header>
+                    <div class="logo">
+                        <a href="index.html">
+                            <img src="images/logo/Logo.svg" alt="Website Logo.">
+                        </a>
+                    </div>
+                    <input type="checkbox" id="check">
+                    <label for="check" class="checkbutton">
+                        <i class="fas fa-bars"></i>
+                    </label>
+                    <nav>
+                        <ul class="nav_Links">
+                            <li>
+                                <a href="oscillator.html" class="oscillatorLink">Oscillators</a>
+                                <a href="filter.html" class="filterLink">Filters</a>
+                                <a href="envelope.html" class="envelopeLink">Envelopes</a>
+                                <a href="effects.html" class="effectsLinkOnPage">Effects</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </header>
+                <main class="effectsContent">
+<!--                    A two column grid is used for the pages other than the index. I refer to them as "box1" and "box2" -->
+                    <div class="box1">
+                        <h1>Effects.</h1>
+                        <br>
+                        <p>Synthesisers don’t commonly come with effects built in, but more modern synthesizers are
+                            being designed with effects included. Some common effects a synthesisers might have built
+                            in are different types of delays, reverbs, and choruses. All these effects do different
+                            things to the sound. </p>
+                        <br>
+                        <p>Reverb (short for reverberation) creates the sense of space to a sound.
+                            Delay gives an ‘echoey’ effect, and chorus gives a ‘doubling’ or ‘unison’ type of effect.
+                            Below are some sliders for a delay effect. The trigger button is hooked up to a triangle
+                            wave with a very fast attack time, and a very short release time so that you can hear the
+                            delay effect take place. Have a play around and compare the sound with the delay on, and
+                            the delay off.</p>
+                        <br>
+                        <div class="warningContainer">
+                            <div class="soundWarning">
+                                <h4>Caution!</h4>
+                                <p>Audio could be loud. Make sure to set your volume appropriately.</p>
+                            </div>
+<!--                            This here is something I would liked and have done differently. -->
+<!--                            Besides providing a sound warning I should have included a volume slider which started at-->
+<!--                            a muted position. This would have insured no one gets startled but the sound better.-->
+                        </div>
+                        <div class="responsiveOscilloscope">
+<!--                            This div is a p5 canvas that only appears when the viewport width is around 750px. -->
+                            <div class="oscillatorCanvas1" id="oscillatorCanvas2"></div>
+                        </div>
+                        <div class="effectNames">
+                            <div class="delayName">
+                                <h3>Delay/Echo</h3>
+                            </div>
+                        </div>
+<!--                        These images are have css hover properties and are wrapped in a div that trigger some JS-->
+<!--                        functions I wrote using the p5.sound library. -->
+                        <div class="effectsControls">
+                            <label for="delayToggleButton">
+                                <input type="button" class="playButton" id="delayToggleButton" value="On" onclick="delayOnOff()">
+                            </label>
+                            <label for="delayTimeSlider">
+                                <input type="range" min="0" max="0.9" value="0.5" class="slider" id="delayTimeSlider" step="0.05">
+                                <h4>Time</h4>
+                            </label>
+                            <label for="feedbackSlider">
+                                <input type="range" min="0" max="0.7" value="0.5" class="slider" id="feedbackSlider" step="0.05">
+                                <h4>Feedback</h4>
+                            </label>
+                            <label for="delayAmountSlider">
+                                <input type="range" min="0.1" max="0.6" value="0.5" class="slider" id="delayAmountSlider" step="0.05">
+                                <h4>Dry/Wet</h4>
+                            </label>
+                        </div>
+                        <br>
+                        <p>‘Time’ determines the time between each repeat (echo), and feedback determines the number of
+                            repeats the echo will have.</p>
+                        <br>
+                        <p>The slider ‘Dry/Wet’ controls how loud the effected sound (wet) is against the not effected
+                            sound (dry). This is common music production jargon. This is also sometimes called ‘Mix’
+                            or simply ‘Amount’. </p>
+                        <br>
+                        <h3>Other Examples:</h3>
+                        <br>
+                        <p>Below are buttons which play a short sample of a melody recorded dry, with reverb, and with
+                            chorus. Have a listen to how they effect the sound differently. </p>
+                        <br>
+                        <div class="effectsAudioExmples">
+                            <div class="effectButtons1">
+                                <label for="toggleDry">
+<!--                                    These buttons trigger audio samples recorded myself.-->
+                                    <input type="button" class="playButton" id="toggleDry" value="Dry" onclick="playDrySynth()">
+                                </label>
+                                <div class="effectButton2">
+                                    <label for="toggleReverb">
+                                        <input type="button" class="playButton" value="Reverb" id="toggleReverb" onclick="playReverbSynth()">
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="effectButtons1">
+                                <label for="toggleChorus">
+                                    <input type="button" class="playButton" id="toggleChorus" value="Chorus" onclick="playChrousSynth()">
+                                </label>
+                                <div class="effectButton2">
+                                    <label for="stopAudio">
+                                        <input type="button" class="playButton" id="stopAudio" value="Stop" onclick="stopAudio()">
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <p>Effects are a nice way of colouring the sound. In production scenarios they are often
+                            added into a song after everything has been recorded. There are many more variations of the
+                            effects mentioned on this page as well as different types of other effects</p>
+                        <br>
+                    </div>
+                    <div class="box2">
+                        <div class="canvases">
+<!--                        This div allows p5 to create a canvas -->
+                            <div class="oscillatorCanvas1" id="oscillatorCanvas1"></div>
+                            <div class="buttonStyling">
+                                <form>
+                                    <input type="button" class="playButton" value="Trigger" id="playButton" onclick="playOsc()">
+                                </form>
+                        </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </body>
+</html>

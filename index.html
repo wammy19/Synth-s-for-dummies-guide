@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="styleSheets/mainStyleSheet.css">
+        <link rel="stylesheet" href="styleSheets/navigationBar.css">
+        <link rel="stylesheet" href="styleSheets/indexPage.css">
+
+<!--        Below 'fontawesome' link is for a "burger menu" icon. -->
+        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+<!--        The visuals and animations being draw on the home screen are done using the p5 library. -->
+<!--        When testing on other browsers, p5 seems so slow down safari a great deal. -->
+        <script src="javaScript/libraries/p5.js"></script>
+        <script src="javaScript/indexJS/homeOscillator.js"></script>
+        <script src="javaScript/indexJS/homeFilter.js"></script>
+        <script src="javaScript/indexJS/homeEnvelope.js"></script>
+        <script src="javaScript/indexJS/homeEffects.js"></script>
+        <script src="javaScript/indexJS/onMouseEvents.js"></script>
+        <script src="javaScript/indexJS/phoneEvents.js"></script>
+        <meta charset="UTF-8">
+        <title>Home</title>
+    </head>
+    <body>
+    <div class="pageContainerParent">
+        <div class="pageContainer">
+            <header>
+                <div class="logo">
+<!--                    Logo on mouse events triggers p5 animations for the home page. -->
+                    <img src="images/logo/Logo.svg" alt="Website Logo" onmouseover="animateAll()" onmouseout="stopAnimation()">
+                </div>
+<!--                Check box is in play to check if the burger menu is triggered. -->
+                <input type="checkbox" id="check">
+                <div class="burgerBarDiv">
+                    <label for="check" class="checkbutton">
+                        <i class="fas fa-bars"></i>
+                    </label>
+                </div>
+                <nav>
+                    <ul class="nav_Links">
+                        <li>
+                            <a href="oscillator.html" class="oscillatorLink" onmouseover="animateOscillatorFunc()" onmouseout="stopAnimation()">Oscillators</a>
+                            <a href="filter.html" class="filterLink" onmouseover="animateFilterFunc()" onmouseout="stopAnimation()">Filters</a>
+                            <a href="envelope.html" class="envelopeLink" onmouseover="animateEnvelopesFunc()" onmouseout="stopAnimation()">Envelopes</a>
+                            <a href="effects.html" class="effectsLink" onmouseover="animateEffectsFunc()" onmouseout="stopAnimation()">Effects</a>
+                        </li>
+                    </ul>
+                </nav>
+            </header>
+        </div>
+    </div>
+        <main>
+            <div class=homeMain>
+                <div class="welcomeText">
+                    <p><span class="indexHighlighting">Welcome.</span><br> This website is a guide to the different parts
+                        that make up a synthesiser, and how they are used to shape electronic sounds. The purpose of
+                        this guide is not to be a technical one, but to provide basic information with interactive
+                        examples of designing electronic sounds. This guide is intended for people with no prior
+                        knowledge but have a keen interest in synthesizers, because synthesizers are awesome. Click on
+                        'Oscillator' to get going!</p>
+                </div>
+            </div>
+        </main>
+        <div class="'row">
+            <div class="column">
+                <div class="oscillator">
+                    <a href="./oscillator.html">
+<!--                        This div allows p5 to create a canvas -->
+                        <div class="homeCanvas" id="homeOscillatorCanvas"></div>
+                        <img src="images/indexImages/blackBackground.png" alt="Blank image in place for positioning canvas.">
+                    </a>
+                </div>
+            </div>
+            <div class="column">
+                <div class="filter">
+                    <a href="./filter.html">
+<!--                        This div allows p5 to create a canvas -->
+                        <div class="homeCanvas" id="homeFilterCanvas"></div>
+                        <img src="images/indexImages/blackBackground.png" alt="Blank image in place for positioning canvas.">
+                    </a>
+                </div>
+            </div>
+            <div class="column">
+                <div class="envelope">
+                    <a href="./envelope.html">
+<!--                        This div allows p5 to create a canvas -->
+                        <div class="homeCanvas" id="homeEnvelopeCanvas"></div>
+                        <img src="images/indexImages/blackBackground.png" alt="Blank image in place for positioning canvas.">
+                    </a>
+                </div>
+            </div>
+            <div class="column">
+                <div class="effects">
+                    <a href="./effects.html">
+<!--                        This div allows p5 to create a canvas -->
+                        <div class="homeCanvas" id="homeEffectsCanvas"></div>
+                        <img src="images/indexImages/blackBackground.png" alt="Blank image in place for positioning canvas.">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

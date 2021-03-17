@@ -1,0 +1,51 @@
+.playButton {
+    margin: auto;
+    padding: 10px;
+    letter-spacing: 1px;
+    background-color: black;
+    color: white;
+    border: 2px solid #3C33C9;
+    border-radius: 15px;
+    cursor: pointer;
+    width: 86px;
+}
+
+/* Indicates what button you have selected*/
+.playButton:focus {
+    outline: 3px dotted white;
+    border: 100px;
+}
+
+.playButton:-moz-focusring {
+    outline: 3px dotted;
+    border-radius: 100px;
+}
+
+.masterFilterControls {
+    padding: 20px 0px 0px 0px;
+}
+
+.soundWarning h4 {
+    font-size: 23px;
+    color: #bb0000;
+}
+
+.nextPageFilter {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 25px;
+    text-align: right;
+    cursor: pointer;
+    transition-duration: 0.5s;
+}
+
+.nextPageFilter a{
+    text-decoration: none;
+    color: white;
+    transition: all 0.3s ease 0s;
+}
+
+.nextPageFilter:hover a {
+    font-size: 26px;
+    color: #0E7E06;
+}

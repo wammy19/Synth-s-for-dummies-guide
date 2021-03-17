@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="styleSheets/mainStyleSheet.css">
+        <link rel="stylesheet" href="styleSheets/sliders.css">
+        <link rel="stylesheet" href="styleSheets/navigationBar.css">
+        <link rel="stylesheet" href="styleSheets/oscillatorPage.css">
+        <meta charset="UTF-8">
+        <title>Oscillator</title>
+        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+        <script src="javaScript/libraries/p5.js"></script>
+        <script src="javaScript/libraries/p5.sound.js"></script>
+        <script src="javaScript/oscillatorPage/oscillator.js"></script>
+    </head>
+    <body>
+        <div class="pageContainerParent">
+            <div class="pageContainer">
+                <header>
+                    <div class="logo">
+                        <a href="index.html">
+                            <img src="images/logo/Logo.svg" alt="Website Logo.">
+                        </a>
+                    </div>
+                    <input type="checkbox" id="check">
+                    <label for="check" class="checkbutton">
+                        <i class="fas fa-bars"></i>
+                    </label>
+                    <nav>
+                        <ul class="nav_Links">
+                            <li>
+                                <a href="oscillator.html" class="oscillatorLinkOnPage">Oscillators</a>
+                                <a href="filter.html" class="filterLink">Filters</a>
+                                <a href="envelope.html" class="envelopeLink">Envelopes</a>
+                                <a href="effects.html" class="effectsLink">Effects</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </header>
+                <main class="oscillatorContent">
+<!--                    A two column grid is used for the pages other than the index. I refer to them as "box1" and "box2" -->
+                    <div class="box1">
+                        <h1>Oscillators.</h1>
+                        <br>
+<!--                        The knowledge of synthesizers on this page as all come from the many years i've spent playing. -->
+<!--                        the synthesizer.-->
+
+<!--                        I found external sources to explain something once in another page, I have made note-->
+<!--                        of that in the report.-->
+
+                        <p>Depending on the synthesiser, oscillators might be found under the name  “DCO”, “VCO”, “Osc”
+                            or more directly, “Oscillator”.  For the time being you don’t need to concern yourself with what
+                            “DCO” or “VCO” mean, or the differences between the two. Oscillators are a crucial part
+                            to a synthesiser as they generate waveforms which make an audible pitched sound.
+                            Oscillators are usually able to generate different types of waveforms for timbral
+                            difference. The most common waveforms one might find on a synthesiser are sine, square
+                            (also know as pulse), triangle, and sawtooth waves. These waveforms all have their own
+                            distinct sound.</p>
+                        <br>
+                        <p>Below are visual illustrations of what these waveforms look like when drawn,
+                            and to the right is an oscilloscope (this will represent the waveforms as they are triggered).
+                            Have a click on the illustrations to trigger a short sample of what each waveform sounds like.
+                            Below the illustrations are also some sliders, have a play around with them and take notice
+                            of how they effect the sound.</p>
+                        <br>
+                        <div class="soundWarning">
+<!--                            This here is something I would liked and have done differently. -->
+<!--                            Besides providing a sound warning I should have included a volume slider which started at-->
+<!--                            a muted position. This would have insured no one gets startled but the sound better.-->
+                            <h4>Caution!</h4>
+                            <p>Audio could be loud. Make sure to set your volume appropriately.</p>
+                        </div>
+                        <br>
+                        <div class="responsiveOscilloscope">
+<!--                            This div is a p5 canvas that only appears when the viewport width is around 750px. -->
+                            <div class="oscillatorCanvas1" id="oscillatorCanvas2"></div>
+                        </div>
+<!--                        These images are have css hover properties and are wrapped in a div that trigger some JS-->
+<!--                        functions I wrote using the p5.sound library. -->
+                        <div class="waveFormImages">
+                            <div class="sinWave" onclick="playSin()">
+                                <img src="./images/oscImages/sin.svg" alt="Visual representation of a sine wave.">
+                                <h3>Sine</h3>
+                            </div>
+<!--                            The square wave behaves a little bit differently to the other wave forms. -->
+<!--                            The wave form doesn't stop when the user clicks on another waveform like the others do. -->
+<!--                            This is due to an issue in the p5.sound library. When a square wave is stopped then started again,-->
+<!--                            it first starts out as a sawtooth wav for a number of seconds before changing back to a square wave-->
+<!--                            i couldn't find anywhere online as to why this issue is happening. Therefor, I've decided-->
+<!--                            to have the square wave run always.-->
+                            <div class="squareWave" onclick="playSquare()">
+                                <img src="./images/oscImages/square.svg" alt="Visual representation of a square wave.">
+                                <h3>Square/Pulse</h3>
+                            </div>
+                            <div class="triangleWave" onclick="playTriangle()">
+                                <img src="./images/oscImages/triangle.svg" alt="Visual representation of a triangle wave.">
+                                <h3>Triangle</h3>
+                            </div>
+                            <div class="sawToothWave" onclick="playSaw()">
+                                <img src="./images/oscImages/saw.svg" alt="Visual representation of a sawtooth wave.">
+                                <h3>Sawtooth</h3>
+                            </div>
+                        </div>
+                        <div class="oscControls">
+<!--                            These sliders affect parameters in p5.-->
+<!--                            Non of the sliders have focus styling keyboard input control for accessibility. -->
+<!--                            This should have been done really.-->
+                            <label for="pitchSlider">
+                                <input type="range" min="200" max="700" value="400" class="slider" id="pitchSlider" step="1">
+                                <h4>Pitch</h4>
+                            </label>
+                            <label for="pulseModRange">
+                                <input type="range" min="0" max="1" value="0.7" class="slider" id="pulseModRange" step="0.1">
+                                <h4>PWM</h4>
+                            </label>
+                            <label for="lfoAmountSlider">
+                                <input type="range" min="0" max="2000" value="0" class="slider" id="lfoAmountSlider" step="1">
+                                <h4>LFO Amount</h4>
+                            </label>
+                            <label for="lfoSpeedSlider">
+                                <input type="range" min="0.1" max="0.9" value="0" class="slider" id="lfoSpeedSlider" step="0.01">
+                                <h4>LFO Speed</h4>
+                            </label>
+                        </div>
+                        <br>
+                        <h2>PWM</h2>
+                        <br>
+                        <p>
+                            PWM stands for ‘Pulse Width Modulation’. It is also often found under the name ‘Shape’ depending
+                            on the synthesiser. PWM only affects the square wave. Try triggering a square wave
+                            and have a play around with the ‘PWD’ slider (make sure the ‘LFO Amount’ slider is all the way to the left).
+                            Also take notice of the oscilloscope.
+                        </p>
+                        <br>
+                        <p>
+                            Did you notice how it narrows or widens the square wave depending on how you are setting the slider? This change in width
+                            gives the square wave a different timbre. The more narrow the square is, the more ‘nasal’ or
+                            ‘thin’ sounding the waveform is. While the wider the square is, the more ‘fuller’ or ‘fat’
+                            sounding the waveform is. This parameter can be set accordingly for the type of sound one is
+                            trying to achieve when sound designing.
+                        </p>
+                        <br>
+                        <br>
+                        <h2>LFO (Low Frequency Oscillator).</h2>
+                        <br>
+                        <p>Presuming you have had a play around with the ‘LFO Amount’, and the ‘LFO Speed’ sliders
+                            above. You might have noticed that these sliders are making the pitch of the selected
+                            waveform go between getting higher, and then lower again. This is called modulation.
+                            In this example we can say that the LFO is modulating the ‘Pitch’ parameter (slider).
+                        </p>
+                        <br>
+                        <p>To help understand what this means, try doing the following:</p>
+                        <br>
+                        <div class="lfoInstructions">
+                            <ol>
+                                <li>Position the ‘LFO Amount’ Slider all the way to the left.</li>
+                                <li>Trigger a waveform of choice.</li>
+                                <li>Drag the ‘Pitch’ slider left to right repeatedly.</li>
+                                <li>Once the waveform has stopped. Set the ‘LFO Amount’ and ‘LFO Speed’ to roughly the middle.</li>
+                                <li>Trigger a waveform of choice.</li>
+                            </ol>
+                        </div>
+                        <br>
+                        <p>What do you notice? You can imagine that the LFO is moving the ‘Pitch’ slider without
+                            you having to do it manually. </p>
+                        <br>
+                        <h3>So what are LFO’s exactly?</h3>
+                        <br>
+                        <p>LFO stands for ‘Low Frequency Oscillator'. Like the name suggests. LFO’s  generate wave forms
+                            that are pitched low, so low that they are inaudible. They can be used to shape the sound
+                            in various ways. In the example we have here, the LFO is routed to the ‘Pitch’ slider. But
+                            LFO’s can be routed to other parameters of a synthesiser.  The choice of parameters an LFO
+                            can be routed to varies from synthesiser to synthesiser.</p>
+                        <br>
+                        <p>LFO’s can also be different
+                            waveforms. In the current example the LFO waveform is a sine wave, this gives a smooth
+                            “sweeping” modulation. If the LFO was set to a square wave. The pitch would change between
+                            two frequencies (notes) without the smooth “sweeping” of frequencies the sine wave is
+                            giving us now. It is also possible to have more than one LFO on a synthesiser, this means
+                            modulation of multiple parameters is possible. The ‘LFO Amount’ determines how intense the
+                            modulation of the routed parameter is to be. While the ‘LFO Speed’ determines how fast or
+                            slow the parameter is to be modulated.</p>
+                    </div>
+                    <div class="nextPageOsc">
+                        <a href="filter.html">Continue To Filters -></a>
+                    </div>
+                    <div class="box2">
+                        <div class="canvases">
+                            <div class="oscillatorCanvas1" id="oscillatorCanvas1"></div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </body>
+</html>

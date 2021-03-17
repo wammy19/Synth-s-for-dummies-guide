@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="styleSheets/mainStyleSheet.css">
+        <link rel="stylesheet" href="styleSheets/sliders.css">
+        <link rel="stylesheet" href="styleSheets/navigationBar.css">
+        <link rel="stylesheet" href="styleSheets/envelopePage.css">
+        <meta charset="UTF-8">
+        <title>Envelope</title>
+        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+        <script src="javaScript/libraries/p5.js"></script>
+        <script src="javaScript/libraries/p5.sound.js"></script>
+        <script src="javaScript/envelopePage/envelope.js"></script>
+    </head>
+    <body>
+        <div class="pageContainerParent">
+            <div class="pageContainer">
+                <header>
+                    <div class="logo">
+                        <a href="index.html">
+                            <img src="images/logo/Logo.svg" alt="Website Logo.">
+                        </a>
+                    </div>
+                    <input type="checkbox" id="check">
+                    <label for="check" class="checkbutton">
+                        <i class="fas fa-bars"></i>
+                    </label>
+                    <nav>
+                        <ul class="nav_Links">
+                            <li>
+                                <a href="oscillator.html" class="oscillatorLink">Oscillators</a>
+                                <a href="filter.html" class="filterLink">Filters</a>
+                                <a href="envelope.html" class="envelopeLinkOnPage">Envelopes</a>
+                                <a href="effects.html" class="effectsLink">Effects</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </header>
+                <main class="envelopeContent">
+                    <div class="box1">
+                        <h1>Envelopes.</h1>
+                        <br>
+                        <p>Envelopes are often found under the name ‘Env’, ‘EG’ (Envelope Generator). Like LFO’s,
+                            envelopes are a source of modulation for parameters. However, envelopes do not generate
+                            waveforms, but rather modulation parameters in stages over a time specified by the user.
+                            The stages are usually called ‘Attack Time’, ‘Decay Time’, ‘Sustain Level’ and ‘Release
+                            Time’. This is often abbreviated to ‘A’ for attack, ‘D’ for decay, ’S’ for sustain, ‘R’
+                            for release and in combination ’ADSR’.  For the most part all synthesizers have a dedicated
+                            envelope routed to the ‘amp’ (the volume) of the synthesizer. Below is a common visual
+                            representation of the different stages an envelope undergoes.</p>
+                        <br>
+                        <p>Let’s go through the different stages as if this is routed to the amp.</p>
+                        <br>
+                        <div class="envelopeImg">
+                            <img src="images/envelopes/envelopeIllustration.svg" alt="Graph representing the different stages of an envelope.">
+                        </div>
+                        <br>
+                        <p>Attack - Once a note is pressed, the volume will start from nothing and
+                            increase in a swell to it’s peak volume.</p>
+                        <br>
+                        <p>Decay - Once the peak is reached, the volume will decrease in a smooth swell to the specified
+                            sustain level.</p>
+                        <br>
+                        <p>Sustain - The note will carry on at the specified sustain level until the note is released.</p>
+                        <br>
+                        <p>Release - Once the note is released the volume will decrease in a long swell.</p>
+                        <br>
+                        <p>Below are four sliders for you to play around with. This enveloped is routed to the amp of a
+                            sine wave and a noise source.	Play around with the sliders, and press the trigger button
+                            to hear how you have shaped the amp. </p>
+                        <br>
+                        <div class="soundWarning">
+                            <h4>Caution!</h4>
+                            <p>Audio could be loud. Make sure to set your volume appropriately.</p>
+                        </div>
+                        <br>
+                        <div class="responsiveOscilloscope">
+<!--                            This div is a p5 canvas that only appears when the viewport width is around 750px. -->
+                            <div class="oscillatorCanvas1" id="oscillatorCanvas2"></div>
+                        </div>
+                        <div class="responsiveButtonStyling">
+                            <form>
+                                <input type="button" class="playButton" value="Trigger" id="playButton" onclick="playSin()">
+                                <input type="button" class="playButton" value="Noise" id="playButtonNoise" onclick="addNoise()">
+                                <input type="button" class="playButton" value="Stop" onclick="stopSound()">
+                            </form>
+                        </div>
+                            <div class="envelopeControls">
+                            <label for="attackTimeSlider">
+                                <input type="range" min="0" max="4" value="0" class="slider" id="attackTimeSlider" step="0.1">
+                                <h4>Attack</h4>
+                            </label>
+                            <label for="decayTimeSlider">
+                                <input type="range" min="0.1" max="4" value="2" class="slider" id="decayTimeSlider" step="0.1">
+                                <h4>Decay</h4>
+                            </label>
+                            <label for="sustainTimeSlider">
+                                <input type="range" min="0.1" max="4" value="2" class="slider" id="sustainTimeSlider" step="0.1">
+                                <h4>Sustain</h4>
+                            </label>
+                            <label for="releaseTimeSlider">
+                                <input type="range" min="0" max="4" value="0" class="slider" id="releaseTimeSlider" step="0.1">
+                                <h4>Release</h4>
+                            </label>
+                        </div>
+                        <br>
+                        <p>Go ahead and add in the noise source provided, and adjust the parameters to achieve a more
+                            percussive sound for something that would resemble an electronic snare drum.</p>
+                        <br>
+                    </div>
+                    <div class="nextPageEnvelope">
+                        <a href="effects.html">Continue To Effects -></a>
+                    </div>
+                    <div class="box2">
+                        <div class="canvases">
+<!--                        This div allows p5 to create a canvas -->
+                            <div class="oscillatorCanvas1" id="oscillatorCanvas1"></div>
+                            <div class="buttonStyling">
+                                <form>
+                                    <input type="button" class="playButton" value="Trigger" id="playButton2" onclick="playSin()">
+                                    <input type="button" class="playButton" value="Noise" id="playButtonNoise2" onclick="addNoise()">
+                                    <input type="button" class="playButton" value="Stop" onclick="stopSound()">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </body>
+</html>

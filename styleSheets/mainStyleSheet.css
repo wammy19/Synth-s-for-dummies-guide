@@ -1,0 +1,187 @@
+/*This imports a font from google fonts.*/
+@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+
+/*Removes default styling. */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background-color: black;
+}
+
+p {
+    line-height: 26px;
+}
+
+.responsiveOscilloscope {
+    text-align: center;
+}
+
+.responsiveButtonStyling {
+    display: none;
+}
+
+.responsiveButtonStyling {
+    text-align: center;
+}
+
+/*main is split into two columns */
+main {
+    position: relative;
+    color: #DAE7ED;
+    font-family: Poppins, sans-serif;
+    letter-spacing: 1.5px;
+    display: grid;
+    grid-gap: 10px;
+    padding: 10px;
+    grid-template-columns: 2fr 1fr;
+    grid-template-areas:
+            "box2 box3";
+}
+
+.box1 {
+    grid-area: box2;
+}
+
+.box2 {
+    grid-area: box3;
+    padding: 20px 60px;
+}
+
+.pageContainer {
+    position: relative;
+    width: 80%;
+}
+
+.pageContainer {
+    left: 10%;
+    right: 10%;
+}
+
+/*Below is styling color styling for the different pages.*/
+
+.filterContent h1 {
+    color: #3F4ADD;
+    padding-top: 20px;
+    font-size: 35px
+}
+
+.filterContent h2 {
+    color: #3F4ADD;
+    padding-top: 20px;
+    font-size: 28px;
+}
+
+.envelopeContent h1 {
+    color: #00AC00;
+    padding-top: 20px;
+    font-size: 35px
+}
+
+.envelopeContent h2 {
+    color: #00AC00;
+    padding-top: 20px;
+    font-size: 25px
+}
+
+.effectsContent h1 {
+    color:#C5A800;
+    padding-top: 20px;
+    font-size: 35px
+}
+
+.effectsContent h2 {
+    color:#C5A800;
+    padding-top: 20px;
+    font-size: 25px
+}
+
+/*This is for the index layout. */
+
+.column {
+    float: left;
+    width: 25%;
+    padding: 10px 40px 10px 40px
+}
+
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* p5 canvas that is draw, position sticky so it follows the user across the page.*/
+.canvases {
+    position: sticky;
+    text-align: center;
+    top: 24%;
+}
+
+.soundWarning {
+    width: 64%;
+    padding: 10px;
+    border-radius: 20px;
+    border: 2px solid #bb0000;
+    font-size: 14px;
+    color: white;
+}
+
+.warningContainer {
+    padding: 10px;
+}
+
+/* Adjustments to the properties above for responsiveness. */
+@media screen and (max-width: 840px) {
+
+    .box2 {
+        padding: 5px;
+    }
+
+    .soundWarning {
+        width: 80%;
+        padding: 10px;
+        border-radius: 20px;
+        border: 2px solid #bb0000;
+        font-size: 14px;
+        color: white;
+        margin-left: 28px;
+    }
+}
+
+@media screen and (max-width: 772px) {
+
+    .responsiveButtonStyling {
+        display: inline;
+    }
+
+    .buttonStyling {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 555px) {
+
+    main {
+        grid-template-areas:
+                "box2 box3";
+    }
+
+    .box1 {
+        width: 340px;
+    }
+
+    /*This is a bit of a bodge job. I could seem to get rid of "box2" (the second grid item), so I just gave it a width of "0". */
+    .box2 {
+        width: 0;
+        grid-area: 0;
+        padding: 0;
+    }
+
+    .oscillatorContent {
+        padding-right: 20px;
+    }
+
+    .pageContainer {
+        left: 3%;
+    }
+}

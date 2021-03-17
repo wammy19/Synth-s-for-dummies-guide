@@ -1,0 +1,43 @@
+.playButton {
+    margin: 0px 0px 0px 3px;
+    padding: 10px;
+    letter-spacing: 1px;
+    background-color: black;
+    color: white;
+    border: 2px solid #0E7E06;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.soundWarning h4 {
+    font-size: 23px;
+    color: #bb0000;
+}
+
+.nextPageEnvelope {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 25px;
+    text-align: right;
+    cursor: pointer;
+    transition-duration: 0.5s;
+}
+
+.nextPageEnvelope a{
+    text-decoration: none;
+    color: white;
+    transition: all 0.3s ease 0s;
+}
+
+.nextPageEnvelope:hover a {
+    font-size: 26px;
+    color: #C5A800;
+}
+
+/* Adjustments to the properties above for responsiveness. */
+@media screen and (max-width: 670px) {
+
+    .envelopeImg img {
+        width: 340px;
+    }
+}
